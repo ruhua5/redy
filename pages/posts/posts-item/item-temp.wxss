@@ -1,0 +1,66 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  background: #fff;
+  boeder-bottom: 1px solid #ededed;
+  border-top: 1px solid #ededed;
+}
+
+.title {
+  margin: 10rpx 0 20rpx 10rpx;
+}
+
+.name {
+  padding: 0 20rpx;
+  font-weight: bold;
+  font-size: 45rpx;
+}
+
+.list-text {
+  padding: 20rpx 0;
+}
+
+.img {
+  width: 100rpx;
+  height: 100rpx;
+  vertical-align: middle;
+}
+
+.title-two {
+  margin-left: 40rpx;
+  vertical-align: middle;
+}
+
+.text-one {
+  font-family: 宋体;
+  font-size: 15px;
+  line-height: 60rpx;
+  padding: 20rpx;
+}
+
+.text-two {
+  height: 400rpx;
+}
+
+.nov {
+  padding: 20rpx 0;
+}
+
+.nov-small {
+  display: inline-block;
+}
+
+.nov-img {
+  height: 40rpx;
+  width: 45rpx;
+  vertical-align: middle;
+  margin: 0 20rpx;
+}
+
+.nov-text {
+  color: #999;
+  vertical-align: middle;
+  font-size: 14px;
+}

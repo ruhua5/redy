@@ -1,0 +1,20 @@
+<!--pages/posts/posts.wxml-->
+<import src="posts-item/item-temp.wxml" />
+<view>
+  <swiper autoplay="true" interval='2000' indicator-dots='indicator_dots' indicator-active-color="red">
+    <block wx:for="{{posts_key}}" wx:key="this">
+      <swiper-item>
+        <image catchtap='onSwiper' data-id="{{item.postId}}" src="{{item.avatar}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--轮播图-->
+  <view class="post-content">
+    <block class='list-text' wx:for="{{posts_key}}" wx:key="this">
+      <view catchtap="onPostTap" data-id="{{item.postId}}" class='post'>
+        <template is="item" data="{{item}}" />
+      </view>
+    </block>
+  </view>
+  <!--text循环-->
+</view>

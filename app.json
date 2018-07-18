@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/posts/posts",
+    "pages/posts/posts-text/text"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#405f80",
+    "navigationBarTitleText": "新闻阅读",
+    "navigationBarTextStyle": "white"
+  }
+}

@@ -1,0 +1,23 @@
+<template name="item">
+  <view class='title'>
+    <image class='img' src='{{item.imgSrc}}'></image>
+    <text class='title-two'>{{item.date}}</text>
+  </view>
+  <view class='text'>
+    <view class='name'>{{item.title}}</view>
+    <view class='text-one'>{{item.content}}</view>
+    <image class='text-two' src='{{item.avatar}}'></image>
+  </view>
+  <view class='nov'>
+    <view class='nov-small'>
+      <image wx:if="{{collected}}" class='nov-img' src='/img/12.png'></image>
+      <image wx:else class='nov-img' src='/img/4.png'></image>
+      <text class='nov-text'>{{item.reading}}</text>
+    </view>
+    <!--收藏-->
+    <view class='nov-small'>
+      <image class='nov-img' src='/img/1.png'></image>
+      <text class='nov-text'>{{item.collection}}</text>
+    </view>
+  </view>
+</template>

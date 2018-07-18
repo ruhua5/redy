@@ -1,0 +1,5 @@
+/* pages/posts/posts.wxss */
+@import "posts-item/item-temp.wxss";
+.post-content{
+  background: #eee;
+}

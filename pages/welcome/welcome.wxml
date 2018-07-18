@@ -1,0 +1,7 @@
+<view class='content'>
+  <image class='img' src="../../img/4.png"></image>
+  <text class='text'>holle,七月</text>
+  <view class='box' bindtap='onTap'>
+    <text class='box-text'>开启小程序</text>
+  </view>
+</view>

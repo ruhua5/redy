@@ -1,0 +1,21 @@
+<template name="common">
+<view>
+<view>1</view>
+<view>2
+<view>{{item.name}}</view>
+
+<view>
+<text>time</text>
+<image src='{{item.imgSrc}}'></image>
+<text>0</text>
+</view>
+
+<view>22122222</view>
+</view>
+</view>
+
+
+
+
+</template>
+

@@ -1,7 +1,10 @@
 // pages/posts/posts-text/text.js
 var postsData = require('../../../data/data.js');
+var app = getApp();
 Page({
-  data: {},
+  data: {
+    isplaymusic: false
+  },
   //接收主组件传递的id值
   onLoad: function(options) {
     var id = options.id
@@ -21,6 +24,31 @@ Page({
       postsCollected[id] = false
       wx.setStorageSync('posts_collected', postsCollected);
     }
+    //音乐
+    if (app.globalData.g_isplaymusic && app.globalData.g_currentMusicPostId===id) {
+      this.setData({
+        isplaymusic: true
+      })
+    }
+    this.setMuiscMonitor();
+  },
+  //监听音乐播放与暂停
+  setMuiscMonitor: function() {
+    var that = this
+    wx.onBackgroundAudioPlay(function() {
+      that.setData({
+        isplaymusic: true
+      })
+      app.globalData.g_isplaymusic = true
+      app.globalData.g_currentMusicPostId = that.data.currentPostId;
+    });
+    wx.onBackgroundAudioPause(function() {
+      that.setData({
+        isplaymusic: false
+      })
+      app.globalData.g_isplaymusic = false;
+      app.globalData.g_currentMusicPostId=null;
+    })
   },
   onColletionTap: function() {
     var postsCollected = wx.getStorageSync('posts_collected')
@@ -61,7 +89,7 @@ Page({
               icon: "success",
               duration: 2000
             })
-          }
+          },
         })
       }
     })
@@ -70,13 +98,42 @@ Page({
     return {
       title: "文章详情",
       path: "/pages/posts-text/text",
-      success: function() {
-        wx.showToast({
-          title: "转发成功",
-          icon: "success",
-          duration: 2000
-        })
+      success: function () {
+        // 转发成功
+        console.log("转发成功");
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败");
       }
+      // success: function() {
+      //   wx.showToast({
+      //     title: "转发成功",
+      //     icon: "success",
+      //     duration: 2000
+      //   })
+      // }
+    }
+  },
+  //音乐播放
+  onMusic: function(event) {
+    var currentPostId = this.data.currentPostId
+    var isplaymusic = this.data.isplaymusic
+    if (isplaymusic) {
+      wx.pauseBackgroundAudio();
+      this.setData({
+        isplaymusic: false
+      })
+
+    } else {
+      wx.playBackgroundAudio({
+        dataUrl: postsData.postlist[currentPostId].music.url,
+        title: postsData.postlist[currentPostId].music.title,
+        coverimgUrl: postsData.postlist[currentPostId].music.coverImg,
+      })
+      this.setData({
+        isplaymusic: true
+      })
     }
   },
 })

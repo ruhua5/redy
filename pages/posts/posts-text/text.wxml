@@ -1,6 +1,8 @@
+<import src="../common/text-common.wxml" />
 <view class="text">
-  <image class='img' src='{{postData.avatar}}'></image>
-  <image class='audio' src='/img/10.png'></image>
+  <image class='img' src='{{isplaymusic?postData.music.coverImg:postData.avatar}}'></image>
+  <image catchtap='onMusic' class='audio' src="{{isplaymusic?'/img/16.png':'/img/15.png'}}"></image>
+  <!--音乐播放图片切换-->
   <view class='nav'>
     <image class='nav-img' src='{{postData.imgSrc}}'></image>
     <text class='author'>{{postData.author}}</text>
@@ -19,4 +21,5 @@
     <!--直线-->
   </view>
   <text class='detail'>{{postData.detail}}</text>
+  <!--<template is="common" />-->
 </view>
